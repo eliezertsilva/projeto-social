@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto de Redes Sociais</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="estilos/style.css">
+    <title>Quer namorar comigo?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .question {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <section id="telefone">
-        <iframe src="home.html" name="tela" id="tela" frameborder="0"></iframe>
-    </section>
-    <section id="redes-sociais">
-        <a href="home.html" target="tela"><img src="imagens/logo-home.jpg" alt="Home"></a><br>
-        <a href="facebook.html" target="tela"><img src="imagens/logo-facebook.jpg" alt="Facebook"></a><br>
-        <a href="github.html" target="tela"><img src="imagens/logo-github.jpg" alt="Github"></a><br>
-        <a href="instagram.html" target="tela"><img src="imagens/logo-instagram.jpg" alt="Instagram"></a><br>
-        <a href="twitter.html" target="tela"><img src="imagens/logo-twitter.jpg" alt="Twitter"></a><br>
-        <a href="youtube.html" target="tela"><img src="imagens/logo-youtube.jpg" alt="Youtube"></a>
-    </section>
+    <div class="container">
+        <div class="question">
+            <p>Quer namorar comigo?</p>
+        </div>
+        <div class="buttons">
+            <button class="button" id="yes-button">Sim</button>
+            <button class="button" id="no-button">Não</button>
+        </div>
+    </div>
+
+    <script>
+        // Reposiciona o botão "Não" em um lugar aleatório ao passar o mouse sobre ele
+        const noButton = document.getElementById("no-button");
+
+        noButton.addEventListener("mouseover", () => {
+            const maxWidth = window.innerWidth - noButton.offsetWidth;
+            const maxHeight = window.innerHeight - noButton.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        // Limpa a página e escreve "Te amo meu amor <3" ao clicar no botão "Sim"
+        const yesButton = document.getElementById("yes-button");
+
+        yesButton.addEventListener("click", () => {
+            document.body.innerHTML = "<h1>Te amo meu amor ❤️</h1>";
+        });
+    </script>
 </body>
 </html>
